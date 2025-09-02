@@ -30,6 +30,6 @@
     "ghcr.io/devcontainers/features/sshd:1": {},
     "ghcr.io/devcontainers/features/python:1": {}
   },
-  "postCreateCommand": "mvn clean package -DskipTests && pre-commit install",
+  "postCreateCommand": ".devcontainer/postCreate.sh",
   "remoteUser": "root"
 }
