@@ -45,7 +45,9 @@ jobs:
           cache: maven
 
       - name: Security scan
-        run: ./mvnw dependency-check:check
+        run: ./mvnw dependency-check:check -DnvdApiKey=${NVD_KEY}
+        env:
+          NVD_KEY: ${{ secrets.NVD_KEY }}
 
   analysis:
     runs-on: ubuntu-latest
