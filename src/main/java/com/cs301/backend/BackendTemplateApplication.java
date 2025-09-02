@@ -17,11 +17,6 @@ public final class BackendTemplateApplication {
     /** Private constructor to prevent instantiation of this utility class. */
     private BackendTemplateApplication() {}
 
-    /**
-     * Main method to start the Spring Boot application.
-     *
-     * @param args command line arguments
-     */
     public static void main(final String[] args) {
         SpringApplication.run(BackendTemplateApplication.class, args);
     }

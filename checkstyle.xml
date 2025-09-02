@@ -19,6 +19,11 @@
 		<property name="eachLine" value="true"/>
 	</module>
 
+	<!-- Javadoc checks with warning severity -->
+	<module name="JavadocPackage">
+		<property name="severity" value="warning"/>
+	</module>
+
 	<module name="TreeWalker">
 		<!-- Checks for Naming Conventions -->
 		<!-- See http://checkstyle.org/config_naming.html -->
@@ -31,11 +36,7 @@
 		<module name="ParameterName"/>
 		<module name="StaticVariableName"/>
 		<module name="TypeName"/>
-		
-		<!-- Javadoc checks with warning severity -->
-		<module name="JavadocPackage">
-			<property name="severity" value="warning"/>
-		</module>
+
 		<module name="MissingJavadocMethod">
 			<property name="severity" value="warning"/>
 			<property name="allowMissingPropertyJavadoc" value="true"/>
