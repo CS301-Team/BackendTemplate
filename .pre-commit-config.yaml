@@ -1,6 +1,13 @@
 repos:
   - repo: local
     hooks:
+      - id: spotless-apply
+        name: spotless-apply
+        entry: mvn spotless:apply
+        language: system
+        types: [java]
+        pass_filenames: false
+        always_run: true
       - id: checkstyle
         name: checkstyle
         entry: mvn checkstyle:check

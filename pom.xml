@@ -117,14 +117,16 @@
             <configuration>
                 <java>
                     <googleJavaFormat>
-                        <style>AOSP</style> </googleJavaFormat>
-                    
+                        <style>AOSP</style> 
+										</googleJavaFormat>
                     </java>
             </configuration>
             <executions>
                 <execution>
                     <goals>
-                        <goal>check</goal> <goal>apply</goal> </goals>
+                        <goal>check</goal> 
+												<goal>apply</goal> 
+										</goals>
                 </execution>
             </executions>
 					</plugin>
