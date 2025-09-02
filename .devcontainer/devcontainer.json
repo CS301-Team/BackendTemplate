@@ -1,0 +1,34 @@
+{
+  "name": "Spring Boot Application",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "forwardPorts": [8080],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack",
+        "vscjava.vscode-spring-boot-dashboard",
+        "vscjava.vscode-spring-initializr",
+        "vscjava.vscode-spring-boot-tools",
+        "redhat.vscode-xml",
+        "redhat.java",
+        "amazonwebservices.aws-toolkit-vscode",
+        "esbenp.prettier-vscode",
+        "rooveterinaryinc.roo-cline",
+        "mhutchie.git-graph",
+        "github.vscode-github-actions"
+      ],
+      "settings": {
+        "java.jdt.ls.java.home": "/opt/java/openjdk",
+        "java.compile.nullAnalysis.mode": "automatic",
+        "spring-boot.ls.problem.requestMapping.mismatch.reportLevel": "warning"
+      }
+    }
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/sshd:1": {}
+  },
+  "postCreateCommand": "mvn clean package -DskipTests",
+  "remoteUser": "root"
+}

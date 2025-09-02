@@ -14,7 +14,6 @@ import io.swagger.v3.oas.annotations.info.Info;
 		description = "API documentation for CS301 Backend Template"
 	)
 )
-
 public class BackendTemplateApplication {
 
 	public static void main(String[] args) {
