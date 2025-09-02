@@ -1,0 +1,77 @@
+# Development environment configuration
+spring:
+  # Development-specific Jackson configuration
+  jackson:
+    serialization:
+      indent-output: true # Pretty print JSON in development
+
+# Server configuration for development
+server:
+  port: ${DEV_SERVER_PORT:8080}
+  servlet:
+    context-path: ${DEV_SERVER_CONTEXT_PATH:/api}
+
+# Development database configuration (H2 for development)
+# Uncomment when JPA is enabled
+# spring:
+#   datasource:
+#     url: ${DEV_DB_URL:jdbc:h2:mem:devdb}
+#     driver-class-name: ${DEV_DB_DRIVER:org.h2.Driver}
+#     username: ${DEV_DB_USERNAME:sa}
+#     password: ${DEV_DB_PASSWORD:}
+#   h2:
+#     console:
+#       enabled: ${H2_CONSOLE_ENABLED:true}
+#       path: ${H2_CONSOLE_PATH:/h2-console}
+#   jpa:
+#     hibernate:
+#       ddl-auto: ${DEV_JPA_DDL_AUTO:create-drop}
+#     show-sql: ${DEV_JPA_SHOW_SQL:true}
+#     properties:
+#       hibernate:
+#         format_sql: true
+
+# Development logging
+logging:
+  level:
+    "[com.cs301.backend]": ${DEV_LOG_LEVEL_APP:DEBUG}
+    "[org.springframework.web]": ${DEV_LOG_LEVEL_WEB:DEBUG}
+    "[org.springframework.security]": ${DEV_LOG_LEVEL_SECURITY:DEBUG}
+    "[org.hibernate.SQL]": ${DEV_LOG_LEVEL_SQL:DEBUG}
+    "[org.hibernate.type.descriptor.sql.BasicBinder]": ${DEV_LOG_LEVEL_SQL_PARAMS:TRACE}
+  file:
+    name: ${DEV_LOG_FILE:logs/backend-template-dev.log}
+
+# Management endpoints for development (expose more endpoints)
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ${DEV_MANAGEMENT_ENDPOINTS:health,info,metrics,env,configprops,beans,mappings}
+  endpoint:
+    health:
+      show-details: always
+
+# OpenAPI/Swagger configuration for development
+springdoc:
+  swagger-ui:
+    enabled: true
+    try-it-out-enabled: true
+  show-actuator: ${DEV_SWAGGER_SHOW_ACTUATOR:true}
+
+# Development-specific application configuration
+app:
+  environment: development
+  debug-mode: ${DEV_DEBUG_MODE:true}
+  cors:
+    allowed-origins: ${DEV_CORS_ALLOWED_ORIGINS:http://localhost:3000,http://localhost:3001,http://localhost:8080}
+    allowed-methods: ${DEV_CORS_ALLOWED_METHODS:GET,POST,PUT,DELETE,OPTIONS,PATCH}
+    allowed-headers: ${DEV_CORS_ALLOWED_HEADERS:*}
+    allow-credentials: ${DEV_CORS_ALLOW_CREDENTIALS:true}
+  security:
+    jwt:
+      secret: ${DEV_JWT_SECRET:dev-secret-key-change-in-production}
+      expiration: ${DEV_JWT_EXPIRATION:86400} # 24 hours in seconds
+  cache:
+    enabled: ${DEV_CACHE_ENABLED:false}
+    ttl: ${DEV_CACHE_TTL:300} # 5 minutes in seconds
