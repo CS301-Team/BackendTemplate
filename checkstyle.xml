@@ -31,6 +31,15 @@
 		<module name="ParameterName"/>
 		<module name="StaticVariableName"/>
 		<module name="TypeName"/>
+		
+		<!-- Javadoc checks with warning severity -->
+		<module name="JavadocPackage">
+			<property name="severity" value="warning"/>
+		</module>
+		<module name="MissingJavadocMethod">
+			<property name="severity" value="warning"/>
+			<property name="allowMissingPropertyJavadoc" value="true"/>
+		</module>
 
 		<!-- Checks for imports -->
 		<!-- See http://checkstyle.org/config_imports.html -->
@@ -91,14 +100,18 @@
 		<!-- See http://checkstyle.org/config_design.html -->
 		<module name="DesignForExtension"/>
 		<module name="FinalClass"/>
-		<module name="HideUtilityClassConstructor"/>
+		<module name="HideUtilityClassConstructor">
+			<property name="severity" value="warning"/>
+		</module>
 		<module name="InterfaceIsType"/>
 		<module name="VisibilityModifier"/>
 
 		<!-- Miscellaneous other checks -->
 		<!-- See http://checkstyle.org/config_misc.html -->
 		<module name="ArrayTypeStyle"/>
-		<module name="FinalParameters"/>
+		<module name="FinalParameters">
+			<property name="severity" value="warning"/>
+		</module>
 		<module name="TodoComment"/>
 		<module name="UpperEll"/>
 	</module>
