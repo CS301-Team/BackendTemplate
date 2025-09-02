@@ -7,17 +7,17 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @OpenAPIDefinition(
-        info =
-                @Info(
-                        title = "CS301 Backend API",
-                        version = "1.0",
-                        description = "API documentation for CS301 Backend Template"))
+    info =
+        @Info(
+            title = "CS301 Backend API",
+            version = "1.0",
+            description = "API documentation for CS301 Backend Template"))
 public final class BackendTemplateApplication {
 
-    /** Private constructor to prevent instantiation of this utility class. */
-    private BackendTemplateApplication() {}
+  /** Private constructor to prevent instantiation of this utility class. */
+  private BackendTemplateApplication() {}
 
-    public static void main(final String[] args) {
-        SpringApplication.run(BackendTemplateApplication.class, args);
-    }
+  public static void main(final String[] args) {
+    SpringApplication.run(BackendTemplateApplication.class, args);
+  }
 }
